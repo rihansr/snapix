@@ -1,7 +1,9 @@
 library shared;
+import 'package:injectable/injectable.dart';
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+@InjectableInit.microPackage(
+  preferRelativeImports: true,
+  usesNullSafety: true,
+  throwOnMissingDependencies: true,
+)
+void shared() {}

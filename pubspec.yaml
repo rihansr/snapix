@@ -20,11 +20,15 @@ dependencies:
   # Modules
   core:
     path: modules/core
+  shared:
+    path: modules/shared
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  build_runner: ^2.4.3
+  injectable_generator: ^2.6.2
   
 flutter:
   uses-material-design: true
