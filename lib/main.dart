@@ -1,5 +1,5 @@
 import 'package:core/configs/configs.dart';
-import 'package:core/service/navigation_service.dart';
+import 'package:core/services/navigation_service.dart';
 import 'package:core/styles/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

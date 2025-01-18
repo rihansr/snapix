@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
-import '../service/navigation_service.dart';
+import '../services/navigation_service.dart';
 
 final string = _String.value;
 

@@ -10,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # Routing
+  go_router: ^14.6.3
   
   # Internationalization
   flutter_localizations:
@@ -17,6 +20,7 @@ dependencies:
 
   # Utilities
   intl: ^0.19.0
+  
 
 dev_dependencies:
   flutter_test:

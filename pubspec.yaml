@@ -13,9 +13,6 @@ dependencies:
   # UI
   cupertino_icons: ^1.0.8
   flutter_native_splash: ^2.4.4
-
-  # Routing
-  go_router: ^14.6.3
   
   # Modules
   core:
