@@ -1,3 +1,4 @@
+import 'package:core/configs/configs.dart';
 import 'package:core/styles/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,10 +21,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Snapix',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      themeMode: ThemeMode.light,
+      theme: theming(ThemeMode.light),
+      darkTheme: theming(ThemeMode.dark),
       locale: const Locale('en'),
       localizationsDelegates: string.delegates,
       supportedLocales: string.supportedLocales,
