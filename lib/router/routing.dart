@@ -1,6 +1,7 @@
 import 'package:core/router/routes.dart';
 import 'package:core/services/navigation_service.dart';
 import 'package:flutter/material.dart';
+import 'package:shared/utils/utils.dart';
 
 final GoRouter routing = GoRouter(
   navigatorKey: navigator.navigatorKey,
@@ -9,6 +10,11 @@ final GoRouter routing = GoRouter(
     GoRoute(
       name: Routes.gallery,
       path: Routes.gallery,
+      redirect: (context, state) {
+        if (!isStoragePermissionGranted) {
+          return Routes.permission;
+        }
+      },
       builder: (BuildContext context, GoRouterState state) {
         return const Scaffold();
       },
