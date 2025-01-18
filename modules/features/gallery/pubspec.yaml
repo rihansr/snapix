@@ -1,5 +1,5 @@
-name: settings
-description: "Settings module"
+name: gallery
+description: "Gallery module"
 version: 0.0.1
 publish_to: 'none'
 
@@ -10,10 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  
   # Code Generator
   json_annotation: ^4.9.0
-    
+
   # Modules
   core:
     path: ../../core
