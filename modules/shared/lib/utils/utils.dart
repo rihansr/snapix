@@ -18,12 +18,19 @@ class _Utils {
     return !(await permission.isDenied || await permission.isPermanentlyDenied);
   }
 
-  Future<bool> requestPermission() async {
+  Future<bool> requestPermission([bool doAction = true]) async {
     Permission permission = await _permissionType;
-    return await permission.request().isDenied ||
-            await permission.request().isPermanentlyDenied
-        ? await openAppSettings()
-        : true;
+    if (await permission.request().isGranted ||
+        await permission.request().isLimited) {
+      return true;
+    } else {
+      if (doAction) {
+        await openAppSettings().then((opened) {
+          if (opened) requestPermission(false);
+        });
+      }
+    }
+    return false;
   }
 
   Future<Permission> get _permissionType async {

@@ -44,3 +44,4 @@ app.*.map.json
 
 *.config.dart
 *.module.dart
+*.g.dart

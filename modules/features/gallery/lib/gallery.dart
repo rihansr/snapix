@@ -1,7 +1,8 @@
 library gallery;
+import 'package:shared/di/service_locator.dart';
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+@InjectableInit.microPackage(
+  preferRelativeImports: true,
+  throwOnMissingDependencies: false,
+)
+void configureGalleryDependencies() {}
