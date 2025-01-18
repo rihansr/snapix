@@ -1,5 +1,6 @@
 import 'package:shared/di/service_locator.dart';
 import 'package:shared/shared.module.dart';
+import 'package:settings/settings.module.dart';
 import 'inject.config.dart';
 
 @InjectableInit(
@@ -7,6 +8,7 @@ import 'inject.config.dart';
   throwOnMissingDependencies: true,
   externalPackageModulesBefore: [
     ExternalModule(SharedPackageModule),
+    ExternalModule(SettingsPackageModule),
   ],
 )
 Future<void> configureDependencies() async => sl.init();
