@@ -9,9 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  
+  # UI
   cupertino_icons: ^1.0.8
   flutter_native_splash: ^2.4.4
+  
+  # Modules
+  core:
+    path: modules/core
 
 dev_dependencies:
   flutter_test:

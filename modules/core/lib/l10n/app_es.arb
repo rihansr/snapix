@@ -1,0 +1,21 @@
+{
+  "@@locale": "es",
+  "@_TITLES": "<-----------------TÍTULOS----------------->",
+  "requirePermission": "Requiere Permiso",
+  "@_DESCRIPTION": "<-----------------DESCRIPCIÓN----------------->",
+  "requirePermissionDescription": "Para mostrar tus fotos en blanco y negro, solo necesitamos permiso para acceder a tu carpeta. Prometemos no tomar tus fotos.",
+  "@_LABELS": "<-----------------ETIQUETAS----------------->",
+  "appName": "Snapix",
+  "grantAccess": "Conceder Acceso",
+  "albums": "Álbumes",
+  "photos": "{count} Fotos",
+  "@photos": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@_MESSAGES": "<-----------------MENSAJES----------------->",
+  "someErrorOccured": "¡Ocurrió un error!"
+}

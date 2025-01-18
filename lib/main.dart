@@ -1,3 +1,4 @@
+import 'package:core/styles/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      locale: const Locale('en'),
+      localizationsDelegates: string.delegates,
+      supportedLocales: string.supportedLocales,
       home: Container(),
     );
   }
