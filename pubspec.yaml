@@ -19,7 +19,9 @@ dependencies:
     path: modules/core
   shared:
     path: modules/shared
-
+  settings:
+    path: modules/features/settings
+    
 dev_dependencies:
   flutter_test:
     sdk: flutter

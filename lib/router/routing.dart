@@ -11,10 +11,15 @@ final GoRouter routing = GoRouter(
       name: Routes.gallery,
       path: Routes.gallery,
       redirect: (context, state) {
-        if (!isStoragePermissionGranted) {
-          return Routes.permission;
-        }
+        return isStoragePermissionGranted ? null : Routes.permission;
       },
+      builder: (BuildContext context, GoRouterState state) {
+        return const Scaffold();
+      },
+    ),
+    GoRoute(
+      name: Routes.permission,
+      path: Routes.permission,
       builder: (BuildContext context, GoRouterState state) {
         return const Scaffold();
       },
