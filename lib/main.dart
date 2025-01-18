@@ -1,7 +1,16 @@
+import 'package:core/configs/configs.dart';
+import 'package:core/service/navigation_service.dart';
+import 'package:core/styles/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:snapix/router/routing.dart';
 
-void main() {
+void main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
@@ -9,14 +18,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    return MaterialApp.router(
       title: 'Snapix',
+      scaffoldMessengerKey: navigator.scaffoldMessengerKey,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home:  Container(),
+      themeMode: ThemeMode.light,
+      theme: theming(ThemeMode.light),
+      darkTheme: theming(ThemeMode.dark),
+      locale: const Locale('en'),
+      localizationsDelegates: string.delegates,
+      supportedLocales: string.supportedLocales,
+      routerConfig: routing,
     );
   }
 }
