@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../styles/colour.dart';
 
 ThemeData theming(ThemeMode mode) {
@@ -112,6 +113,16 @@ ThemeData theming(ThemeMode mode) {
         color: colorPalette.subtitle,
         fontWeight: FontWeight.w400,
       ),
+    ),
+  );
+}
+
+set systemUIOverlayStyle(ThemeMode mode) {
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness:
+          mode == ThemeMode.light ? Brightness.dark : Brightness.light,
     ),
   );
 }
