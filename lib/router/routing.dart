@@ -1,7 +1,6 @@
 import 'package:core/router/routes.dart';
-import 'package:core/service/navigation_service.dart';
+import 'package:core/services/navigation_service.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 final GoRouter routing = GoRouter(
   navigatorKey: navigator.navigatorKey,
