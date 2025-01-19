@@ -4,6 +4,8 @@ import 'package:core/styles/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:gallery/domain/usecases/albums_usecase.dart';
+import 'package:gallery/presentation/bloc/gallery_bloc.dart';
 import 'package:settings/settings.dart';
 import 'package:shared/di/service_locator.dart';
 import 'package:shared/utils/utils.dart';
@@ -33,22 +35,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-        valueListenable: sl<Settings>().notifier,
-        builder: (_, settings, __) {
-          systemUIOverlayStyle = settings.themeMode;
-          return MaterialApp.router(
-            title: 'Snapix',
-            scaffoldMessengerKey: navigator.scaffoldMessengerKey,
-            debugShowCheckedModeBanner: false,
-            themeMode: settings.themeMode,
-            theme: theming(ThemeMode.light),
-            darkTheme: theming(ThemeMode.dark),
-            locale: settings.language.locale,
-            localizationsDelegates: string.delegates,
-            supportedLocales: string.supportedLocales,
-            routerConfig: routing,
-          );
-        });
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => GalleryBloc(
+            sl<AlbumsUseCase>(),
+          ),
+        ),
+      ],
+      child: ValueListenableBuilder(
+          valueListenable: sl<Settings>().notifier,
+          builder: (_, settings, __) {
+            systemUIOverlayStyle = settings.themeMode;
+            return MaterialApp.router(
+              title: 'Snapix',
+              scaffoldMessengerKey: navigator.scaffoldMessengerKey,
+              debugShowCheckedModeBanner: false,
+              themeMode: settings.themeMode,
+              theme: theming(ThemeMode.light),
+              darkTheme: theming(ThemeMode.dark),
+              locale: settings.language.locale,
+              localizationsDelegates: string.delegates,
+              supportedLocales: string.supportedLocales,
+              routerConfig: routing,
+            );
+          }),
+    );
   }
 }

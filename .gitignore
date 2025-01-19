@@ -44,4 +44,5 @@ app.*.map.json
 
 *.config.dart
 *.module.dart
+*.freezed.dart
 *.g.dart
