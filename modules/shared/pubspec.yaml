@@ -7,10 +7,6 @@ environment:
   sdk: ^3.5.4
   flutter: ">=1.17.0"
 
-# Modules
-core:
-  path: ../core
-
 dependencies:
   device_info_plus: ^11.2.1
   flutter:
@@ -19,6 +15,10 @@ dependencies:
   # Dependeny Injection
   get_it: ^8.0.3
   injectable: ^2.5.0
+
+  # Utilities
+  dartz: ^0.10.1
+  equatable: ^2.0.7
 
   # Local Storage
   permission_handler: ^11.3.1

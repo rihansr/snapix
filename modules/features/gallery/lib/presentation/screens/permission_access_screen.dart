@@ -4,7 +4,7 @@ import 'package:core/styles/drawable.dart';
 import 'package:core/styles/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/presentation/widgets/widgets.dart';
-import 'package:shared/utils/utils.dart';
+import 'package:shared/utils/utils.dart' show isStoragePermissionGranted, utils;
 
 class PermissionAccessScreen extends StatefulWidget {
   const PermissionAccessScreen({super.key});

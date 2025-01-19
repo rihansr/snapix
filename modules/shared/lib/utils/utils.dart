@@ -1,8 +1,13 @@
 library utils;
 
+import 'dart:convert';
 import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shared/utils/debug.dart';
+export 'package:equatable/equatable.dart';
+export 'package:dartz/dartz.dart';
 export 'constants.dart';
 export 'debug.dart';
 export 'enums.dart';
@@ -31,6 +36,12 @@ class _Utils {
       }
     }
     return false;
+  }
+
+  Future<void> fetchGallery() async {
+    const MethodChannel channel = MethodChannel('gallery_images');
+    final result = await channel.invokeMethod('getFoldersAndImages');
+    debug.print(json.encode(result));
   }
 
   Future<Permission> get _permissionType async {
