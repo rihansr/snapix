@@ -54,6 +54,7 @@ class _PermissionAccessScreenState extends State<PermissionAccessScreen> {
                   valueListenable: loadingNotifier,
                   builder: (_, isLoading, __) {
                     return Button(
+                      key: const Key('grant_access_button'),
                       label: string.of(context).grantAccess,
                       loading: isLoading,
                       onPressed: () {

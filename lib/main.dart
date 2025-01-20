@@ -12,7 +12,7 @@ import 'package:shared/utils/utils.dart';
 import 'package:snapix/router/routing.dart';
 import 'di/inject.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await Future.wait([

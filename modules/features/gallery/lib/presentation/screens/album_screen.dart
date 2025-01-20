@@ -71,7 +71,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
             itemBuilder: (BuildContext context, int index) {
               var photo = state.photos[index];
               return PhotoGrid(
-                key: ValueKey('${photo}_$index'),
+                key: ValueKey('photo_$index'),
                 path: photo,
               );
             },

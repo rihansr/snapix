@@ -53,7 +53,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
             itemBuilder: (BuildContext context, int index) {
               var album = state.albums[index];
               return AlbumGrid(
-                key: ValueKey('${album.folder}_$index'),
+                key: ValueKey('album_$index'),
                 album: album,
               );
             },
