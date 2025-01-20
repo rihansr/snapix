@@ -1,39 +1,58 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Snapix
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+<img src="https://github.com/rihansr/snapix/blob/main/preview.gif" width="30%" height="30%"/>
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## Project Structure
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+### Modules
 
-## Features
+The project is divided into several modules, each responsible for a specific feature or functionality. This modular approach helps in maintaining a clean architecture and makes the codebase more manageable and scalable.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+### Modules
 
-## Getting started
+- **Core**: Provides fundamental services and functionalities that are utilized across the entire application.
+- **Features**:
+    - **Gallery**: Displays photo albums with previews and full-screen viewing.
+    - **Settings**: Manages application settings, including localization and theming options.
+- **Shared**: Provides common functionalities such as permission handling, local storage access, and reusable widgets, all following clean architecture principles.
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+### Dependency Injection
 
-## Usage
+We use `get_it` and `injectable` for dependency injection to manage the dependencies across different modules. This ensures that the dependencies are easily testable and configurable.
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### State Management
 
-```dart
-const like = 'sample';
-```
+The application uses `flutter_bloc` for state management, which helps in managing the state of the application in a predictable manner.
 
-## Additional information
+## Getting Started
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+### Download
+
+You can download the latest version of the application from the following links:
+
+- [Google Drive](https://drive.google.com/file/d/1jGHhNYIJRc_JLyMj3UgX9FxPiUp1GinJ/view?usp=sharing)
+
+### Prerequisites
+
+Ensure you have the following installed on your system:
+
+- Flutter SDK: [Installation Guide](https://docs.flutter.dev/get-started/install)
+- Dart SDK: [Installation Guide](https://dart.dev/get-dart)
+
+### Steps
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/rihansr/snapix.git
+    cd snapix
+    ```
+
+2. Install dependencies:
+    ```sh
+    flutter pub get
+    ```
+
+3. Run the application:
+    ```sh
+    flutter run
+    ```
