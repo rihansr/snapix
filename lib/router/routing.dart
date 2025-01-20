@@ -2,6 +2,7 @@ import 'package:core/router/routes.dart';
 import 'package:core/services/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/presentation/screens/permission_access_screen.dart';
+import 'package:gallery/presentation/screens/gallery_screen.dart';
 import 'package:shared/utils/utils.dart';
 
 final GoRouter routing = GoRouter(
@@ -15,7 +16,7 @@ final GoRouter routing = GoRouter(
         return isStoragePermissionGranted ? null : Routes.permission;
       },
       builder: (BuildContext context, GoRouterState state) {
-        return const Scaffold();
+        return  const GalleryScreen();
       },
     ),
     GoRoute(

@@ -17,6 +17,7 @@ class GalleryRepositoryImpl extends GalleryRepository {
       final result = await projectsApi.albums();
       return Right(result);
     } catch (e) {
+      debug.print(e);
       return Left(Failure('$e'));
     }
   }

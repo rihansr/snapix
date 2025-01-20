@@ -12,6 +12,8 @@ class _Dimen {
   final double width = MediaQuery.sizeOf(navigator.context).width;
   final EdgeInsets padding = MediaQuery.of(navigator.context).padding;
 
+  final double screenBorderSpace = 16;
+
   double bottom(double value, [bool merge = true]) =>
       padding.bottom == 0 ? value : padding.bottom + (merge ? value : 0);
 }
