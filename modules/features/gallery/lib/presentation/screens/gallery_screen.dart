@@ -1,3 +1,4 @@
+import 'package:core/router/routes.dart';
 import 'package:core/styles/dimen.dart';
 import 'package:core/styles/strings.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,12 @@ class _GalleryScreenState extends State<GalleryScreen> {
           style: theme.textTheme.headlineLarge,
         ),
         centerTitle: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings_outlined),
+            onPressed: () => context.pushNamed(Routes.settings),
+          ),
+        ],
       ),
       body: BlocConsumer<GalleryBloc, GalleryState>(
         bloc: context.watch<GalleryBloc>(),

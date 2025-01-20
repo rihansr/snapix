@@ -10,6 +10,7 @@ export 'package:equatable/equatable.dart';
 export 'package:collection/collection.dart';
 export 'package:dartz/dartz.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
+export 'extensions/extensions.dart';
 export 'constants.dart';
 export 'debug.dart';
 export 'enums.dart';

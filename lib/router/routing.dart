@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/presentation/screens/permission_access_screen.dart';
 import 'package:gallery/presentation/screens/gallery_screen.dart';
 import 'package:gallery/presentation/screens/album_screen.dart';
+import 'package:settings/presentation/screens/settings_screen.dart';
 import 'package:shared/utils/utils.dart';
 
 final GoRouter routing = GoRouter(
@@ -33,6 +34,13 @@ final GoRouter routing = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         String param = state.pathParameters['id'] ?? '';
         return param.isEmpty ? const SizedBox.shrink() : AlbumScreen(id: param);
+      },
+    ),
+    GoRoute(
+      name: Routes.settings,
+      path: Routes.settings,
+      builder: (BuildContext context, GoRouterState state) {
+        return const SettingsScreen();
       },
     ),
   ],
