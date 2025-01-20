@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
 import 'package:shared/di/service_locator.dart';
-import 'package:shared/utils/utils.dart';
 import '../models/album_model.dart';
 import 'gallery_api.dart';
 

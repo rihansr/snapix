@@ -16,6 +16,7 @@ class GalleryBloc extends Bloc<GalleryEvent, GalleryState> {
       await events.map(
         albums: (event) async => await _albums(event, emit),
         photos: (event) => _photos(event, emit),
+        loadMore: (event) => _loadMore(event, emit),
       );
     });
   }
@@ -25,23 +26,49 @@ class GalleryBloc extends Bloc<GalleryEvent, GalleryState> {
     final result = await _albumsUseCase.invoke();
     result.fold(
       (failure) => emitter(
-          state.copyWith(status: Status.failure, albums: [], photos: [])),
+        state.copyWith(status: Status.failure, albums: [], albumPhotos: []),
+      ),
       (albums) => emitter(
         state.copyWith(
           status: Status.success,
           albums: albums,
-          photos: [],
         ),
       ),
     );
   }
 
   _photos(_Photos event, Emitter<GalleryState> emitter) {
-    final photos =
+    final allPhotos =
         state.albums.firstWhereOrNull((e) => e.folder == event.id)?.photos ??
             [];
+    final limit = event.limit ?? state.limit;
+    final photos = allPhotos.take(limit).toList();
+    final maxPage =
+        (allPhotos.length ~/ limit) + (allPhotos.length % limit > 0 ? 1 : 0);
+
     emitter(
-      state.copyWith(photos: photos),
+      state.copyWith(
+        albumPhotos: allPhotos,
+        photos: photos,
+        limit: limit,
+        currentPage: 1,
+        minPage: 1,
+        maxPage: maxPage,
+      ),
+    );
+  }
+
+  _loadMore(_LoadMore event, Emitter<GalleryState> emitter) {
+    if (state.currentPage == state.maxPage) return;
+    final startIndex = state.currentPage * state.limit;
+    final newPhotos =
+        state.albumPhotos.skip(startIndex).take(state.limit).toList();
+    if (newPhotos.isEmpty) return;
+    emitter(
+      state.copyWith(
+        photos: [...state.photos, ...newPhotos],
+        currentPage: startIndex + 1,
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:core/router/routes.dart';
 import 'package:core/styles/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/presentation/widgets/clipper_widget.dart';
@@ -41,41 +42,48 @@ class _AlbumGridState extends State<AlbumGrid> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Clipper(
-      color: theme.colorScheme.surface,
-      radius: 10,
-      padding: const EdgeInsets.all(12),
-      backdrop: image == null
-          ? null
-          : DecorationImage(
-              image: image!,
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(
-                theme.colorScheme.secondary.withOpacity(0.5),
-                BlendMode.srcATop,
+    return InkWell(
+      onTap: () => context.pushNamed(
+        Routes.album,
+        pathParameters: {'id': widget.album.folder ?? ''},
+      ),
+      borderRadius: BorderRadius.circular(10),
+      child: Clipper(
+        color: theme.colorScheme.surface,
+        radius: 10,
+        padding: const EdgeInsets.all(12),
+        backdrop: image == null
+            ? null
+            : DecorationImage(
+                image: image!,
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  theme.colorScheme.secondary.withOpacity(0.5),
+                  BlendMode.srcATop,
+                ),
+              ),
+        alignment: Alignment.bottomLeft,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.album.folder ?? '',
+              style: theme.textTheme.titleMedium?.copyWith(
+                color: theme.colorScheme.onSecondary,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              string.of(context).photos(widget.album.photos?.length ?? 0),
+              style: theme.textTheme.labelMedium?.copyWith(
+                color: theme.colorScheme.onTertiary,
               ),
             ),
-      alignment: Alignment.bottomLeft,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            widget.album.folder ?? '',
-            style: theme.textTheme.titleMedium?.copyWith(
-              color: theme.colorScheme.onSecondary,
-            ),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(height: 4),
-          Text(
-            string.of(context).photos(widget.album.photos?.length ?? 0),
-            style: theme.textTheme.labelMedium?.copyWith(
-              color: theme.colorScheme.onTertiary,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
