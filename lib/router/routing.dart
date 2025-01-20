@@ -1,6 +1,10 @@
 import 'package:core/router/routes.dart';
 import 'package:core/services/navigation_service.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery/presentation/screens/permission_access_screen.dart';
+import 'package:gallery/presentation/screens/gallery_screen.dart';
+import 'package:gallery/presentation/screens/album_screen.dart';
+import 'package:settings/presentation/screens/settings_screen.dart';
 import 'package:shared/utils/utils.dart';
 
 final GoRouter routing = GoRouter(
@@ -14,29 +18,29 @@ final GoRouter routing = GoRouter(
         return isStoragePermissionGranted ? null : Routes.permission;
       },
       builder: (BuildContext context, GoRouterState state) {
-        return const Scaffold();
+        return const GalleryScreen();
       },
     ),
     GoRoute(
       name: Routes.permission,
       path: Routes.permission,
       builder: (BuildContext context, GoRouterState state) {
-        return const Scaffold();
+        return const PermissionAccessScreen();
       },
     ),
     GoRoute(
       name: Routes.album,
-      path: Routes.album,
+      path: '${Routes.album}/:id',
       builder: (BuildContext context, GoRouterState state) {
-        return const Scaffold();
+        String param = state.pathParameters['id'] ?? '';
+        return param.isEmpty ? const SizedBox.shrink() : AlbumScreen(id: param);
       },
     ),
     GoRoute(
-      name: Routes.preview,
-      path: Routes.preview,
+      name: Routes.settings,
+      path: Routes.settings,
       builder: (BuildContext context, GoRouterState state) {
-        final path = state.uri.queryParameters['path'];
-        return const Scaffold();
+        return const SettingsScreen();
       },
     ),
   ],

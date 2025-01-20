@@ -113,6 +113,24 @@ abstract class AppLocalizations {
   /// **'Snapix'**
   String get appName;
 
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @thememode.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Mode'**
+  String get thememode;
+
   /// No description provided for @grantAccess.
   ///
   /// In en, this message translates to:

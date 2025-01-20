@@ -6,6 +6,8 @@ class ColorPalette {
   Color onPrimary;
   Color secondary;
   Color onSecondary;
+  Color tertiary;
+  Color onTertiary;
   Color surface;
   Color onSurface;
   Color scaffold;
@@ -27,6 +29,8 @@ class ColorPalette {
     required this.onPrimary,
     required this.secondary,
     required this.onSecondary,
+    required this.tertiary,
+    required this.onTertiary,
     required this.surface,
     required this.onSurface,
     required this.scaffold,
@@ -49,6 +53,8 @@ class ColorPalette {
         onPrimary: const Color(0xFF000000),
         secondary: const Color(0xFF232222),
         onSecondary: const Color(0xFFFFFFFF),
+        tertiary: const Color(0xFF232222),
+        onTertiary: const Color(0xFFD8D8D8),
         surface: const Color(0xFFFFFFFF),
         onSurface: const Color(0xFF000000),
         scaffold: const Color(0xFFFFFFFF),
@@ -71,6 +77,8 @@ class ColorPalette {
         onPrimary: const Color(0xFF000000),
         secondary: const Color(0xFF232222),
         onSecondary: const Color(0xFFFFFFFF),
+        tertiary: const Color(0xFF232222),
+        onTertiary: const Color(0xFFD8D8D8),
         surface: const Color(0xFF000000),
         onSurface: const Color(0xFFFFFFFF),
         scaffold: const Color(0xFF000000),

@@ -16,6 +16,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'Snapix';
 
   @override
+  String get settings => 'Settings';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get thememode => 'Theme Mode';
+
+  @override
   String get grantAccess => 'Grant Access';
 
   @override

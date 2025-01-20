@@ -30,7 +30,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: centerTitle,
       title: title,
-      titleSpacing: 8,
+      titleSpacing: 16,
       backgroundColor: backgroundColor,
       leading: automaticallyImplyLeading || Navigator.canPop(context)
           ? IconButton(

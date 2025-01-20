@@ -1,8 +1,16 @@
 library utils;
 
+import 'dart:convert';
 import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shared/utils/debug.dart';
+export 'package:equatable/equatable.dart';
+export 'package:collection/collection.dart';
+export 'package:dartz/dartz.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
+export 'extensions/extensions.dart';
 export 'constants.dart';
 export 'debug.dart';
 export 'enums.dart';
@@ -18,12 +26,25 @@ class _Utils {
     return !(await permission.isDenied || await permission.isPermanentlyDenied);
   }
 
-  Future<bool> requestPermission() async {
+  Future<bool> requestPermission([bool doAction = true]) async {
     Permission permission = await _permissionType;
-    return await permission.request().isDenied ||
-            await permission.request().isPermanentlyDenied
-        ? await openAppSettings()
-        : true;
+    if (await permission.request().isGranted ||
+        await permission.request().isLimited) {
+      return true;
+    } else {
+      if (doAction) {
+        await openAppSettings().then((opened) {
+          if (opened) requestPermission(false);
+        });
+      }
+    }
+    return false;
+  }
+
+  Future<void> fetchGallery() async {
+    const MethodChannel channel = MethodChannel('gallery_images');
+    final result = await channel.invokeMethod('getFoldersAndImages');
+    debug.print(json.encode(result));
   }
 
   Future<Permission> get _permissionType async {

@@ -22,6 +22,8 @@ ThemeData theming(ThemeMode mode) {
       onPrimary: colorPalette.onPrimary,
       secondary: colorPalette.secondary,
       onSecondary: colorPalette.onSecondary,
+      tertiary: colorPalette.tertiary,
+      onTertiary: colorPalette.onTertiary,
       surface: colorPalette.surface,
       onSurface: colorPalette.onSurface,
       error: colorPalette.error,

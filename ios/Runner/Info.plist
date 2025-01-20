@@ -50,5 +50,8 @@
 		<!-- Media Permissions -->
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>To show your black and white photos we just need your folder permission. We promise, we don’t take your photos.</string>
+		<key>NSPhotoLibraryAddUsageDescription</key>
+<string>We need access to save images to your photo library.</string>
+
 	</dict>
 </plist>
